@@ -185,10 +185,10 @@ public class CadRemedio extends javax.swing.JFrame {
         cadastrar();
     }//GEN-LAST:event_btCadastrarActionPerformed
      private void limpar() {
-    ctNome.setText("");
-    ctLote.setText("");
-    ctDatadeValidade.setText("");
-    ctQuant.setText("");
+        ctNome.setText("");
+        ctLote.setText("");
+        ctDatadeValidade.setText("");
+        ctQuant.setText("");
     }
      private void cadastrar(){
 	Remedio rem = new Remedio();
