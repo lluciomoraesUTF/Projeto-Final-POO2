@@ -1,46 +1,31 @@
-//Lucio da Cruz de Moraes RA:2476550
-public class Paciente {
-    private String cpf;
-    private String nomePes;
-    private String saudCod;
-    private String alergiaMedic;
+import java.util.Date;
+public class Paciente extends Pessoa {
+    private Date dataNascimento;
+    private String email;
 
-    public Paciente (String cpf, String nomePes, String saudCod, String alergiaMedic){
-        this.cpf=cpf;
-        this.nomePes = nomePes; 
-        this.saudCod = saudCod;
-        this.alergiaMedic = alergiaMedic;    
+    public Paciente(String nome, String cpf, Date dataNascimento, String email) {
+        super(nome, cpf);
+        this.dataNascimento = dataNascimento;
+        this.email = email;
     }
     //sobrecarga
     public Paciente (){
-        this.cpf=null;
-        this.nomePes = null; 
-        this.saudCod = null;
-        this.alergiaMedic = null;    
+        this.dataNascimento = null;
+        this.email = null;    
     }
-    public String getCpf(){
-        return  cpf;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
-    public String getNomePes(){
-        return nomePes;
+    public String getEmail() {
+        return email;
     }
-    public String getSaudCod(){
-        return saudCod;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
-    public String getAlergiaMedic(){
-        return alergiaMedic;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public void setCpf(String cpf){
-        this.cpf = cpf;
-    }
-    public void setNomePes(String nomePes){
-        this.nomePes = nomePes;
-    }
-    public void setSaudCod(String saudCod){
-        this.saudCod = saudCod;
-    }
-    public void setAlergiaMedic(String alergiaMedic){
-        this.alergiaMedic = alergiaMedic;
-    }
+   
     
-}   
+}

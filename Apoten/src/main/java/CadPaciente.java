@@ -193,10 +193,10 @@ public class CadPaciente extends javax.swing.JFrame {
 
     private void cadastrar() {
         Paciente paciente = new Paciente();
-        paciente.setAlergiaMedic(ctAlergiaMedic.getText());
+        paciente.setEmail(ctAlergiaMedic.getText());
         paciente.setCpf(ctCPF.getText());
-        paciente.setNomePes(ctNome.getText());
-        paciente.setSaudCod(ctSauCod.getText());
+        paciente.setNome(ctNome.getText());
+        paciente.setDataNascimento(ctSauCod.getText());
         
         if (paciente != null) {
             JOptionPane.showMessageDialog(null, "Cadastro de paciente efetuado com sucesso!");

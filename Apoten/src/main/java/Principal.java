@@ -56,7 +56,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Title.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Title.setText("BEM VINDO AO PHARMACY.");
+        Title.setText("BEM VINDO AO Apoten");
 
         lblAntiALer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblAntiALer.setText("Anti-Alergico");
@@ -315,10 +315,6 @@ public class Principal extends javax.swing.JFrame {
         new CadImunosupressor().setVisible(true);
     }//GEN-LAST:event_CadImunoActionPerformed
 
-    private void btCadastroAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroAntiAlerActionPerformed
-        new CadAntiAler().setVisible(true);
-    }//GEN-LAST:event_btCadastroAntiAlerActionPerformed
-
     private void btCadastroAntiHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroAntiHtensaoActionPerformed
         new CadAntiht().setVisible(true);
     }//GEN-LAST:event_btCadastroAntiHtensaoActionPerformed
@@ -327,53 +323,57 @@ public class Principal extends javax.swing.JFrame {
         new CadImunosupressor().setVisible(true);
     }//GEN-LAST:event_btCadastroImunosupActionPerformed
 
-    private void btConsultaAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAlerActionPerformed
+    private void btConsultaAntiAler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAlerActionPerformed
-
-    private void btConsultaAntiHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiHtensaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiHtensaoActionPerformed
-
-    private void btConsultaImunosupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaImunosupActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaImunosupActionPerformed
-
-    private void btConsultaAntiAler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler1ActionPerformed
-
-    private void btConsultaAntiAler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler2ActionPerformed
+    }//GEN-LAST:event_btConsultaAntiAler4ActionPerformed
 
     private void btConsultaAntiAler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btConsultaAntiAler3ActionPerformed
 
-    private void btConsultaAntiAler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler4ActionPerformed
+    private void btConsultaAntiAler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler4ActionPerformed
+    }//GEN-LAST:event_btConsultaAntiAler2ActionPerformed
 
-    private void btConsultaAntiAler5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler5ActionPerformed
+    private void btConsultaAntiAler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler5ActionPerformed
+    }//GEN-LAST:event_btConsultaAntiAler1ActionPerformed
 
-    private void btConsultaAntiAler6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler6ActionPerformed
+    private void btConsultaImunosupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaImunosupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler6ActionPerformed
+    }//GEN-LAST:event_btConsultaImunosupActionPerformed
 
-    private void btConsultaAntiAler7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler7ActionPerformed
+    private void btConsultaAntiHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiHtensaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler7ActionPerformed
+    }//GEN-LAST:event_btConsultaAntiHtensaoActionPerformed
+
+    private void btConsultaAntiAler9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsultaAntiAler9ActionPerformed
+
+    private void btConsultaAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAlerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsultaAntiAlerActionPerformed
 
     private void btConsultaAntiAler8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btConsultaAntiAler8ActionPerformed
 
-    private void btConsultaAntiAler9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler9ActionPerformed
+    private void btConsultaAntiAler7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler9ActionPerformed
+    }//GEN-LAST:event_btConsultaAntiAler7ActionPerformed
+
+    private void btConsultaAntiAler6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsultaAntiAler6ActionPerformed
+
+    private void btConsultaAntiAler5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsultaAntiAler5ActionPerformed
+
+    private void btCadastroAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroAntiAlerActionPerformed
+        new CadAntiAler().setVisible(true);
+    }//GEN-LAST:event_btCadastroAntiAlerActionPerformed
     
     /**
      * @param args the command line arguments
