@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 public class RemedioException extends Exception {
     Remedio rem = new Remedio();
-    public LocalDate DataInvalidaException(LocalDate data_Validade) {
+    public LocalDate DataInvalidaException(LocalDate dataValidade) {
         try{
-            LocalDate dataValidadeVerificada = rem.verif_Validade(data_Validade);
+            LocalDate dataValidadeVerificada = rem.verif_Validade(dataValidade);
         }catch(RemedioException t){ 
             JOptionPane.showMessageDialog(
 				null,
@@ -15,7 +15,7 @@ public class RemedioException extends Exception {
             return null;
             
         }
-        return rem.data_Validade;
+        return rem.dataValidade;
     }
     
 }

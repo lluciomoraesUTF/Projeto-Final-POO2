@@ -1,9 +1,10 @@
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 public class Paciente extends Pessoa {
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private String email;
 
-    public Paciente(String nome, String cpf, Date dataNascimento, String email) {
+    public Paciente(String nome, String cpf, LocalDate dataNascimento, String email) {
         super(nome, cpf);
         this.dataNascimento = dataNascimento;
         this.email = email;
@@ -13,13 +14,13 @@ public class Paciente extends Pessoa {
         this.dataNascimento = null;
         this.email = null;    
     }
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
     public String getEmail() {
         return email;
     }
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

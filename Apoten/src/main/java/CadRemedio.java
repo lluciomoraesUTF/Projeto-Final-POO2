@@ -2,16 +2,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author LUCIO
- */
 public class CadRemedio extends javax.swing.JFrame {
 
     /**
@@ -68,7 +58,7 @@ public class CadRemedio extends javax.swing.JFrame {
         lblDatadeValidade.setText("Data de Validade:");
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setText("Imunosupressor");
+        lblTitle.setText("Remedio");
 
         ctDatadeValidade.setText("aaaa/mm/dd");
         ctDatadeValidade.addActionListener(new java.awt.event.ActionListener() {

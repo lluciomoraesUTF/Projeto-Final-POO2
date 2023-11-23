@@ -1,6 +1,6 @@
-/*Lucio da Cruz de Moraes RA2476550*/
 import javax.swing.JOptionPane;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 public class CadPaciente extends javax.swing.JFrame {
 
     /**
@@ -22,7 +22,7 @@ public class CadPaciente extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         lblAlergiaMedicamento = new javax.swing.JLabel();
-        ctAlergiaMedic = new javax.swing.JTextField();
+        ctEmail = new javax.swing.JTextField();
         lblTitle = new javax.swing.JLabel();
         btCadastrar = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
@@ -30,7 +30,7 @@ public class CadPaciente extends javax.swing.JFrame {
         lblCPF = new javax.swing.JLabel();
         ctCPF = new javax.swing.JTextField();
         lblSaudCod = new javax.swing.JLabel();
-        ctSauCod = new javax.swing.JTextField();
+        ctDataNasc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,10 +51,10 @@ public class CadPaciente extends javax.swing.JFrame {
         lblAlergiaMedicamento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblAlergiaMedicamento.setText("e-mail");
 
-        ctAlergiaMedic.setText("Alergia");
-        ctAlergiaMedic.addActionListener(new java.awt.event.ActionListener() {
+        ctEmail.setText("name@example.com");
+        ctEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctAlergiaMedicActionPerformed(evt);
+                ctEmailActionPerformed(evt);
             }
         });
 
@@ -86,10 +86,10 @@ public class CadPaciente extends javax.swing.JFrame {
         lblSaudCod.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSaudCod.setText("Data de Nacimento");
 
-        ctSauCod.setText("123");
-        ctSauCod.addActionListener(new java.awt.event.ActionListener() {
+        ctDataNasc.setText("123");
+        ctDataNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctSauCodActionPerformed(evt);
+                ctDataNascActionPerformed(evt);
             }
         });
 
@@ -103,7 +103,7 @@ public class CadPaciente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblSaudCod, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
-                        .addComponent(ctSauCod))
+                        .addComponent(ctDataNasc))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -118,7 +118,7 @@ public class CadPaciente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAlergiaMedicamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ctAlergiaMedic)))
+                        .addComponent(ctEmail)))
                 .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
@@ -145,11 +145,11 @@ public class CadPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSaudCod)
-                    .addComponent(ctSauCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlergiaMedicamento)
-                    .addComponent(ctAlergiaMedic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSair)
@@ -177,26 +177,26 @@ public class CadPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ctCPFActionPerformed
 
-    private void ctSauCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctSauCodActionPerformed
+    private void ctDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctDataNascActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctSauCodActionPerformed
+    }//GEN-LAST:event_ctDataNascActionPerformed
 
-    private void ctAlergiaMedicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctAlergiaMedicActionPerformed
+    private void ctEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctAlergiaMedicActionPerformed
+    }//GEN-LAST:event_ctEmailActionPerformed
     private void limpar() {
-    ctAlergiaMedic.setText("");
+    ctEmail.setText("");
     ctCPF.setText("");
     ctNome.setText("");
-    ctSauCod.setText("");
+    ctDataNasc.setText("");
 }
 
     private void cadastrar() {
         Paciente paciente = new Paciente();
-        paciente.setEmail(ctAlergiaMedic.getText());
+        paciente.setEmail(ctEmail.getText());
         paciente.setCpf(ctCPF.getText());
         paciente.setNome(ctNome.getText());
-        paciente.setDataNascimento(ctSauCod.getText());
+       paciente.setDataNascimento(LocalDate.parse(ctDataNasc.getText()));
         
         if (paciente != null) {
             JOptionPane.showMessageDialog(null, "Cadastro de paciente efetuado com sucesso!");
@@ -245,10 +245,10 @@ public class CadPaciente extends javax.swing.JFrame {
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSair;
-    private javax.swing.JTextField ctAlergiaMedic;
     private javax.swing.JTextField ctCPF;
+    private javax.swing.JTextField ctDataNasc;
+    private javax.swing.JTextField ctEmail;
     private javax.swing.JTextField ctNome;
-    private javax.swing.JTextField ctSauCod;
     private javax.swing.JLabel lblAlergiaMedicamento;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblNome;

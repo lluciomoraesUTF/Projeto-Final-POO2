@@ -4,12 +4,12 @@ import java.time.LocalDate;
     public class Remedio {
         private String nome;
         private int lote;
-        public LocalDate data_Validade; 
+        public LocalDate dataValidade; 
         private int quantidade;
         public Remedio(String nome, int lote, LocalDate data_Validade, int quantidade) {
             this.nome = nome;
             this.lote = lote;
-            this.data_Validade = data_Validade;
+            this.dataValidade = data_Validade;
             this.quantidade = quantidade;
             
         }
@@ -17,7 +17,7 @@ import java.time.LocalDate;
         public Remedio() {
             this.nome = "";
             this.lote = 0;
-            this.data_Validade = null;
+            this.dataValidade = null;
             this.quantidade = 0;
 
 
@@ -31,7 +31,7 @@ import java.time.LocalDate;
         }
 
         public LocalDate getData_Validade() {
-            return data_Validade;
+            return dataValidade;
         }
 
    
@@ -50,7 +50,7 @@ import java.time.LocalDate;
             try{
                 LocalDate dataValidadeVerificada = verif_Validade(data_Validade);
             }catch(RemedioException t){   
-                this.data_Validade = t.DataInvalidaException(data_Validade);
+                this.dataValidade = t.DataInvalidaException(data_Validade);
             }
         }
         public void setQuantidade(int quantidade) {
@@ -63,7 +63,7 @@ import java.time.LocalDate;
             if (data_Validade != null && data_Cadastro.compareTo(dataValidade) >= 0) {
                 throw new RemedioException();
             }
-            this.data_Validade = data_Validade;
-            return this.data_Validade;
+            this.dataValidade = data_Validade;
+            return this.dataValidade;
         }
 }
