@@ -18,32 +18,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="CadAntiAler">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Anti-Alergico"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadAntiAlerActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CadAntHtensao">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Anti Hipertensivo"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadAntHtensaoActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CadImuno">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Imunossupressor"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadImunoActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
@@ -77,77 +51,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="Title" min="-2" pref="292" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="btCadastrarPac" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <Component id="btCadastrarRem" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btConsultaAntiAler1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btConsultaAntiAler" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btConsultaAntiHtensao" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btConsultaAntiAler2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="btCadastroAntiHtensao" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btConsultaAntiAler5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                          <Component id="lblAntiALer" min="-2" pref="83" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="lblAntiHtensao" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btConsultaAntiAler7" max="32767" attributes="0"/>
-                                              <Component id="btConsultaAntiAler4" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                          <Component id="btConsultaAntiAler8" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblImuno" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btConsultaImunosup" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btCadastroImunosup" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btConsultaAntiAler3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btConsultaAntiAler6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btConsultaAntiAler9" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="btCadastroAntiAler" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="52" max="-2" attributes="0"/>
-                      <Component id="Title" min="-2" pref="292" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btConsultarRem" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                          <Component id="btConsultaPac" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -156,43 +89,20 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Title" min="-2" pref="46" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAntiALer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAntiHtensao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblImuno" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btCadastroAntiAler" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btCadastroAntiHtensao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btCadastroImunosup" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btConsultaAntiAler" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiHtensao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaImunosup" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btCadastrarPac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btCadastrarRem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="btConsultarRem" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btConsultaAntiAler1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler3" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btConsultaAntiAler4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler6" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btConsultaAntiAler7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btConsultaAntiAler9" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <Component id="btConsultaPac" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,151 +113,52 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="BEM VINDO AO Apoten"/>
+        <Property name="text" type="java.lang.String" value="BEM VINDO AO APOTEN"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAntiALer">
+    <Component class="javax.swing.JButton" name="btCadastrarPac">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Anti-Alergico"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAntiHtensao">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Anti-Hipertensivo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblImuno">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Imunosupressor"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btCadastroAntiAler">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastro"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar paciente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastroAntiAlerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarPacActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btCadastroAntiHtensao">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastro"/>
+        <Property name="text" type="java.lang.String" value="O que voc&#xea; deseja Fazer?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btCadastrarRem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar Rem&#xe9;dio"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastroAntiHtensaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarRemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btCadastroImunosup">
+    <Component class="javax.swing.JButton" name="btConsultaPac">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastro"/>
+        <Property name="text" type="java.lang.String" value="Cosultar Prontu&#xe1;rio do Paciente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastroImunosupActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaPacActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler">
+    <Component class="javax.swing.JButton" name="btConsultarRem">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consulta"/>
+        <Property name="text" type="java.lang.String" value="Consultar Rem&#xe9;dio"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAlerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultarRemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiHtensao">
+    <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consulta"/>
+        <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiHtensaoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaImunosup">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Consulta"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaImunosupActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Dispensa"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Dispensa"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Dispensa"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler3ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Remocao"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler4ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Remocao"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler5ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Remocao"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler6ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler7ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler8ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btConsultaAntiAler9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConsultaAntiAler9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

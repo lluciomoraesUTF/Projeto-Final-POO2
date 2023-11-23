@@ -28,176 +28,59 @@ public class Principal extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jSplitPane1 = new javax.swing.JSplitPane();
         Title = new javax.swing.JLabel();
-        lblAntiALer = new javax.swing.JLabel();
-        lblAntiHtensao = new javax.swing.JLabel();
-        lblImuno = new javax.swing.JLabel();
-        btCadastroAntiAler = new javax.swing.JButton();
-        btCadastroAntiHtensao = new javax.swing.JButton();
-        btCadastroImunosup = new javax.swing.JButton();
-        btConsultaAntiAler = new javax.swing.JButton();
-        btConsultaAntiHtensao = new javax.swing.JButton();
-        btConsultaImunosup = new javax.swing.JButton();
-        btConsultaAntiAler1 = new javax.swing.JButton();
-        btConsultaAntiAler2 = new javax.swing.JButton();
-        btConsultaAntiAler3 = new javax.swing.JButton();
-        btConsultaAntiAler4 = new javax.swing.JButton();
-        btConsultaAntiAler5 = new javax.swing.JButton();
-        btConsultaAntiAler6 = new javax.swing.JButton();
-        btConsultaAntiAler7 = new javax.swing.JButton();
-        btConsultaAntiAler8 = new javax.swing.JButton();
-        btConsultaAntiAler9 = new javax.swing.JButton();
+        btCadastrarPac = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btCadastrarRem = new javax.swing.JButton();
+        btConsultaPac = new javax.swing.JButton();
+        btConsultarRem = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JMenuBar();
         MnCadastro = new javax.swing.JMenu();
-        CadAntiAler = new javax.swing.JMenuItem();
-        CadAntHtensao = new javax.swing.JMenuItem();
-        CadImuno = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Title.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Title.setText("BEM VINDO AO Apoten");
+        Title.setText("BEM VINDO AO APOTEN");
 
-        lblAntiALer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAntiALer.setText("Anti-Alergico");
-
-        lblAntiHtensao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAntiHtensao.setText("Anti-Hipertensivo");
-
-        lblImuno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblImuno.setText("Imunosupressor");
-
-        btCadastroAntiAler.setText("Cadastro");
-        btCadastroAntiAler.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrarPac.setText("Cadastrar paciente");
+        btCadastrarPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroAntiAlerActionPerformed(evt);
+                btCadastrarPacActionPerformed(evt);
             }
         });
 
-        btCadastroAntiHtensao.setText("Cadastro");
-        btCadastroAntiHtensao.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("O que você deseja Fazer?");
+
+        btCadastrarRem.setText("Cadastrar Remédio");
+        btCadastrarRem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroAntiHtensaoActionPerformed(evt);
+                btCadastrarRemActionPerformed(evt);
             }
         });
 
-        btCadastroImunosup.setText("Cadastro");
-        btCadastroImunosup.addActionListener(new java.awt.event.ActionListener() {
+        btConsultaPac.setText("Cosultar Prontuário do Paciente");
+        btConsultaPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroImunosupActionPerformed(evt);
+                btConsultaPacActionPerformed(evt);
             }
         });
 
-        btConsultaAntiAler.setText("Consulta");
-        btConsultaAntiAler.addActionListener(new java.awt.event.ActionListener() {
+        btConsultarRem.setText("Consultar Remédio");
+        btConsultarRem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAlerActionPerformed(evt);
+                btConsultarRemActionPerformed(evt);
             }
         });
 
-        btConsultaAntiHtensao.setText("Consulta");
-        btConsultaAntiHtensao.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiHtensaoActionPerformed(evt);
-            }
-        });
-
-        btConsultaImunosup.setText("Consulta");
-        btConsultaImunosup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaImunosupActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler1.setText("Dispensa");
-        btConsultaAntiAler1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler1ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler2.setText("Dispensa");
-        btConsultaAntiAler2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler2ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler3.setText("Dispensa");
-        btConsultaAntiAler3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler3ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler4.setText("Remocao");
-        btConsultaAntiAler4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler4ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler5.setText("Remocao");
-        btConsultaAntiAler5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler5ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler6.setText("Remocao");
-        btConsultaAntiAler6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler6ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler7.setText("Update");
-        btConsultaAntiAler7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler7ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler8.setText("Update");
-        btConsultaAntiAler8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler8ActionPerformed(evt);
-            }
-        });
-
-        btConsultaAntiAler9.setText("Update");
-        btConsultaAntiAler9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaAntiAler9ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
         MnCadastro.setText("Cadastro");
-
-        CadAntiAler.setText("Cadastrar Anti-Alergico");
-        CadAntiAler.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadAntiAlerActionPerformed(evt);
-            }
-        });
-        MnCadastro.add(CadAntiAler);
-
-        CadAntHtensao.setText("Cadastrar Anti Hipertensivo");
-        CadAntHtensao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadAntHtensaoActionPerformed(evt);
-            }
-        });
-        MnCadastro.add(CadAntHtensao);
-
-        CadImuno.setText("Cadastrar Imunossupressor");
-        CadImuno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadImunoActionPerformed(evt);
-            }
-        });
-        MnCadastro.add(CadImuno);
-
         MenuPrincipal.add(MnCadastro);
 
         jMenu2.setText("Edit");
@@ -210,170 +93,73 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(btCadastrarPac)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(btCadastrarRem)
+                .addGap(68, 68, 68))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btConsultaAntiAler1)
-                                                .addComponent(btConsultaAntiAler))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btConsultaAntiHtensao, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btConsultaAntiAler2, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(0, 0, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btCadastroAntiHtensao)
-                                                .addComponent(btConsultaAntiAler5))))
-                                    .addGap(46, 46, 46))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(7, 7, 7)
-                                            .addComponent(lblAntiALer, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(28, 28, 28)
-                                            .addComponent(lblAntiHtensao))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(btConsultaAntiAler7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btConsultaAntiAler4))
-                                            .addGap(59, 59, 59)
-                                            .addComponent(btConsultaAntiAler8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGap(44, 44, 44)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblImuno)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btConsultaImunosup)
-                                    .addComponent(btCadastroImunosup)
-                                    .addComponent(btConsultaAntiAler3)
-                                    .addComponent(btConsultaAntiAler6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btConsultaAntiAler9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(btCadastroAntiAler)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addGap(43, 43, 43))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btConsultarRem, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btConsultaPac))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAntiALer)
-                    .addComponent(lblAntiHtensao)
-                    .addComponent(lblImuno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastroAntiAler)
-                    .addComponent(btCadastroAntiHtensao)
-                    .addComponent(btCadastroImunosup))
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btConsultaAntiAler)
-                    .addComponent(btConsultaAntiHtensao)
-                    .addComponent(btConsultaImunosup))
+                    .addComponent(btCadastrarPac)
+                    .addComponent(btCadastrarRem))
+                .addGap(43, 43, 43)
+                .addComponent(btConsultarRem)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btConsultaAntiAler1)
-                    .addComponent(btConsultaAntiAler2)
-                    .addComponent(btConsultaAntiAler3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btConsultaAntiAler4)
-                    .addComponent(btConsultaAntiAler5)
-                    .addComponent(btConsultaAntiAler6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btConsultaAntiAler7)
-                    .addComponent(btConsultaAntiAler8)
-                    .addComponent(btConsultaAntiAler9))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addComponent(btConsultaPac)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CadAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAntiAlerActionPerformed
-        new CadAntiAler().setVisible(true);
-    }//GEN-LAST:event_CadAntiAlerActionPerformed
+    private void btConsultarRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarRemActionPerformed
+        new ConsultaRem().setVisible(true);
 
-    private void CadAntHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAntHtensaoActionPerformed
-        new CadAntiht().setVisible(true);
-    }//GEN-LAST:event_CadAntHtensaoActionPerformed
+    }//GEN-LAST:event_btConsultarRemActionPerformed
 
-    private void CadImunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadImunoActionPerformed
-        new CadImunosupressor().setVisible(true);
-    }//GEN-LAST:event_CadImunoActionPerformed
+    private void btCadastrarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarPacActionPerformed
+        new CadPaciente().setVisible(true);
+    }//GEN-LAST:event_btCadastrarPacActionPerformed
 
-    private void btCadastroAntiHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroAntiHtensaoActionPerformed
-        new CadAntiht().setVisible(true);
-    }//GEN-LAST:event_btCadastroAntiHtensaoActionPerformed
+    private void btCadastrarRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarRemActionPerformed
+        new CadRemedio().setVisible(true);
+    }//GEN-LAST:event_btCadastrarRemActionPerformed
 
-    private void btCadastroImunosupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroImunosupActionPerformed
-        new CadImunosupressor().setVisible(true);
-    }//GEN-LAST:event_btCadastroImunosupActionPerformed
+    private void btConsultaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaPacActionPerformed
+        new ConsultaPac().setVisible(true);
+    }//GEN-LAST:event_btConsultaPacActionPerformed
 
-    private void btConsultaAntiAler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler4ActionPerformed
-
-    private void btConsultaAntiAler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler3ActionPerformed
-
-    private void btConsultaAntiAler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler2ActionPerformed
-
-    private void btConsultaAntiAler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler1ActionPerformed
-
-    private void btConsultaImunosupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaImunosupActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaImunosupActionPerformed
-
-    private void btConsultaAntiHtensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiHtensaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiHtensaoActionPerformed
-
-    private void btConsultaAntiAler9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler9ActionPerformed
-
-    private void btConsultaAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAlerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAlerActionPerformed
-
-    private void btConsultaAntiAler8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler8ActionPerformed
-
-    private void btConsultaAntiAler7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler7ActionPerformed
-
-    private void btConsultaAntiAler6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler6ActionPerformed
-
-    private void btConsultaAntiAler5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaAntiAler5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaAntiAler5ActionPerformed
-
-    private void btCadastroAntiAlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroAntiAlerActionPerformed
-        new CadAntiAler().setVisible(true);
-    }//GEN-LAST:event_btCadastroAntiAlerActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -411,32 +197,17 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem CadAntHtensao;
-    private javax.swing.JMenuItem CadAntiAler;
-    private javax.swing.JMenuItem CadImuno;
     private javax.swing.JMenuBar MenuPrincipal;
     private javax.swing.JMenu MnCadastro;
     private javax.swing.JLabel Title;
-    private javax.swing.JButton btCadastroAntiAler;
-    private javax.swing.JButton btCadastroAntiHtensao;
-    private javax.swing.JButton btCadastroImunosup;
-    private javax.swing.JButton btConsultaAntiAler;
-    private javax.swing.JButton btConsultaAntiAler1;
-    private javax.swing.JButton btConsultaAntiAler2;
-    private javax.swing.JButton btConsultaAntiAler3;
-    private javax.swing.JButton btConsultaAntiAler4;
-    private javax.swing.JButton btConsultaAntiAler5;
-    private javax.swing.JButton btConsultaAntiAler6;
-    private javax.swing.JButton btConsultaAntiAler7;
-    private javax.swing.JButton btConsultaAntiAler8;
-    private javax.swing.JButton btConsultaAntiAler9;
-    private javax.swing.JButton btConsultaAntiHtensao;
-    private javax.swing.JButton btConsultaImunosup;
+    private javax.swing.JButton btCadastrarPac;
+    private javax.swing.JButton btCadastrarRem;
+    private javax.swing.JButton btConsultaPac;
+    private javax.swing.JButton btConsultarRem;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel lblAntiALer;
-    private javax.swing.JLabel lblAntiHtensao;
-    private javax.swing.JLabel lblImuno;
     // End of variables declaration//GEN-END:variables
 }
