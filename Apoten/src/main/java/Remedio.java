@@ -1,4 +1,3 @@
-
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.LocalDate;
@@ -7,7 +6,7 @@ import java.time.LocalDate;
         private int lote;
         public LocalDate data_Validade; 
         private int quantidade;
-        public Remedio(String nome, int lote, LocalDate data_Validade, String principio_Ativo, String administracao, int quantidade,EfeitosAdversos efAD) {
+        public Remedio(String nome, int lote, LocalDate data_Validade, int quantidade) {
             this.nome = nome;
             this.lote = lote;
             this.data_Validade = data_Validade;

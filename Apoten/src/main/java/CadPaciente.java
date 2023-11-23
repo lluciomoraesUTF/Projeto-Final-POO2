@@ -49,7 +49,7 @@ public class CadPaciente extends javax.swing.JFrame {
         });
 
         lblAlergiaMedicamento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAlergiaMedicamento.setText("Alergia Medicamentosa");
+        lblAlergiaMedicamento.setText("e-mail");
 
         ctAlergiaMedic.setText("Alergia");
         ctAlergiaMedic.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class CadPaciente extends javax.swing.JFrame {
         });
 
         lblSaudCod.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSaudCod.setText("Codigo de Saude");
+        lblSaudCod.setText("Data de Nacimento");
 
         ctSauCod.setText("123");
         ctSauCod.addActionListener(new java.awt.event.ActionListener() {
@@ -169,10 +169,6 @@ public class CadPaciente extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
-    private void ctAlergiaMedicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctAlergiaMedicActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctAlergiaMedicActionPerformed
-
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         cadastrar();
     }//GEN-LAST:event_btCadastrarActionPerformed
@@ -184,6 +180,10 @@ public class CadPaciente extends javax.swing.JFrame {
     private void ctSauCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctSauCodActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctSauCodActionPerformed
+
+    private void ctAlergiaMedicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctAlergiaMedicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctAlergiaMedicActionPerformed
     private void limpar() {
     ctAlergiaMedic.setText("");
     ctCPF.setText("");
