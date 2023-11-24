@@ -45,6 +45,6 @@ CREATE TABLE dispensa (
     medicamento_nome VARCHAR(100) REFERENCES remedio(nome),
     medicamento_lote INT REFERENCES remedio(lote),
     quantidade_preescrita INT,
-    data_dispensa DATE,
+    data_dispensa DATE
 );
 

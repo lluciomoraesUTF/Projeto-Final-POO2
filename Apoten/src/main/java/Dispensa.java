@@ -5,7 +5,6 @@ public class Dispensa {
     private Receita receita;
     private Farmaceutico farmaceutico;
     private Remedio remedio;
-    private int quantidadeDispensada;
     private LocalDate dataDispensa;
 
     // Construtor
@@ -13,19 +12,12 @@ public class Dispensa {
         this.receita = receita;
         this.farmaceutico = farmaceutico;
         this.remedio = remedio;
-        if (quantidadeDispensada <= receita.getQuantidade()) {
-            this.quantidadeDispensada = quantidadeDispensada;
-        } else {
-            this.quantidadeDispensada = receita.getQuantidade();
-        }
-
         this.dataDispensa = dataDispensa;
     }
     public Dispensa() {
         this.receita = null;
         this.farmaceutico = null;
         this.remedio = null;
-        this.quantidadeDispensada = 0;
         this.dataDispensa = null;
     }
 
@@ -41,9 +33,7 @@ public class Dispensa {
     public Remedio getRemedio() {
         return remedio;
     }
-    public int getQuantidadeDispensada() {
-        return quantidadeDispensada;
-    }
+    
     public LocalDate getDataDispensa() {
         return dataDispensa;
     }
@@ -60,9 +50,6 @@ public class Dispensa {
         this.remedio = remedio;
     }
 
-     public void setQuantidadeDispensada(int quantidadeDispensada) {
-        this.quantidadeDispensada = quantidadeDispensada;
-    }
     public void setDataDispensa(LocalDate dataDispensa) {
         this.dataDispensa = dataDispensa;
     }
