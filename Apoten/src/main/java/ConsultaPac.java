@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConsultaPac extends javax.swing.JFrame {
 
@@ -48,6 +52,11 @@ public class ConsultaPac extends javax.swing.JFrame {
         jLabel1.setText("Consultar Paciente");
 
         jButton1.setText("Consultar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,12 +141,56 @@ public class ConsultaPac extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            consulta();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaPac.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void limpar() { 
         ctCPF.setText("");
 }
-    /**
-     * @param args the command line arguments
-     */
+    public List<Paciente> consulta() throws SQLException {
+        List<Paciente> pacientes = new ArrayList<>();
+        PreparedStatement stmt = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        try {
+            Conexao conexao = Conexao.getInstance();
+            con = conexao.getConnection();
+
+            stmt = con.prepareStatement("SELECT * FROM paciente");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Paciente paciente = new Paciente();
+                paciente.setCpf(rs.getString("cpf"));
+                paciente.setNome(rs.getString("nome"));
+                paciente.setDataNascimento(rs.getDate("data_nasc").toLocalDate());
+                paciente.setEmail(rs.getString("email"));
+                pacientes.add(paciente);
+            }
+        } catch (SQLException ex) {
+                 Logger.getLogger(ConsultaPac.class.getName()).log(Level.SEVERE, null, ex);
+
+
+        } finally {
+           
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return pacientes;
+}
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

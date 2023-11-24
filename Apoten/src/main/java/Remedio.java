@@ -2,25 +2,31 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.LocalDate;
     public class Remedio {
+        private int codigo;
         private String nome;
         private int lote;
         public LocalDate dataValidade; 
         private int quantidade;
-        public Remedio(String nome, int lote, LocalDate data_Validade, int quantidade) {
+        public Remedio(int codigo,String nome, int lote, LocalDate dataValidade, int quantidade) {
+            this.codigo = codigo;
             this.nome = nome;
             this.lote = lote;
-            this.dataValidade = data_Validade;
+            this.dataValidade = dataValidade;
             this.quantidade = quantidade;
             
         }
         //sobrecarga
         public Remedio() {
+            this.codigo = 0;
             this.nome = "";
             this.lote = 0;
             this.dataValidade = null;
             this.quantidade = 0;
 
 
+        }
+        public int getCodigo(){
+            return codigo;
         }
         public String getNome() {
             return nome;
@@ -33,13 +39,12 @@ import java.time.LocalDate;
         public LocalDate getData_Validade() {
             return dataValidade;
         }
-
-   
-
         public int getQuantidade() {
             return quantidade;
         }
-      
+        public void setCodigo ( int codigo){
+            this.codigo = codigo;
+        }
         public void setNome(String nome) {
             this.nome = nome;
         }
