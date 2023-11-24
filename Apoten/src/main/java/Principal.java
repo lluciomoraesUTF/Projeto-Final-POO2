@@ -26,6 +26,8 @@ public class Principal extends javax.swing.JFrame {
         btConsultaPac = new javax.swing.JButton();
         btConsultarRem = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btConsultaPac1 = new javax.swing.JButton();
+        btCadastrarRem1 = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JMenuBar();
         MnCadastro = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -51,7 +53,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btConsultaPac.setText("Consultar Prontuário do Paciente");
+        btConsultaPac.setText("Consultar Paciente");
         btConsultaPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultaPacActionPerformed(evt);
@@ -72,6 +74,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btConsultaPac1.setText("Prontuário do Paciente");
+        btConsultaPac1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsultaPac1ActionPerformed(evt);
+            }
+        });
+
+        btCadastrarRem1.setText("Cadastrar Farmaceutico");
+        btCadastrarRem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarRem1ActionPerformed(evt);
+            }
+        });
+
         MnCadastro.setText("Cadastro");
         MenuPrincipal.add(MnCadastro);
 
@@ -85,29 +101,30 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
-                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btCadastrarPac)
-                        .addGap(59, 59, 59)
-                        .addComponent(btCadastrarRem))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(btConsultarRem, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btConsultaPac)))
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btCadastrarRem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btCadastrarRem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btConsultaPac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btCadastrarPac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btConsultarRem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btConsultaPac1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)))))
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,15 +133,19 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastrarPac)
-                    .addComponent(btCadastrarRem))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btCadastrarRem1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btCadastrarRem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btCadastrarPac)
                 .addGap(18, 18, 18)
                 .addComponent(btConsultarRem)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btConsultaPac)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btConsultaPac1)
+                .addGap(15, 15, 15)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -152,6 +173,14 @@ public class Principal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btConsultaPac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaPac1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsultaPac1ActionPerformed
+
+    private void btCadastrarRem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarRem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCadastrarRem1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -194,7 +223,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Title;
     private javax.swing.JButton btCadastrarPac;
     private javax.swing.JButton btCadastrarRem;
+    private javax.swing.JButton btCadastrarRem1;
     private javax.swing.JButton btConsultaPac;
+    private javax.swing.JButton btConsultaPac1;
     private javax.swing.JButton btConsultarRem;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

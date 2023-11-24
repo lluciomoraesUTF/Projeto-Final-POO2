@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -35,7 +36,7 @@ public class ConsultaPac extends javax.swing.JFrame {
         btLimpar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableProntuario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +50,7 @@ public class ConsultaPac extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Consultar Paciente");
+        jLabel1.setText("Registrar Prontuário");
 
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,22 +68,22 @@ public class ConsultaPac extends javax.swing.JFrame {
 
         jButton2.setText("Voltar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableProntuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "CPF", "Nome", "Nome Paciente", "Data de Nascimento", "email"
+                "CPF", "Nome", "Data de Nascimento", "email", "Data da Dispensa", "Quantidade ", "Nome do Remédio"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableProntuario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,23 +100,23 @@ public class ConsultaPac extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel1))
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(lblCPF)
-                        .addGap(18, 18, 18)
-                        .addComponent(ctCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCPF)
+                                .addGap(18, 18, 18)
+                                .addComponent(ctCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,18 +143,16 @@ public class ConsultaPac extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+ 
             consulta();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConsultaPac.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void limpar() { 
         ctCPF.setText("");
 }
-    public List<Paciente> consulta() throws SQLException {
-        List<Paciente> pacientes = new ArrayList<>();
+public List<Dispensa> consulta() {
+        List<Dispensa> dispensas = new ArrayList<>();
         PreparedStatement stmt = null;
         Connection con = null;
         ResultSet rs = null;
@@ -162,23 +161,39 @@ public class ConsultaPac extends javax.swing.JFrame {
             Conexao conexao = Conexao.getInstance();
             con = conexao.getConnection();
 
-            stmt = con.prepareStatement("SELECT * FROM paciente");
+            String cpfPaciente = ctCPF.getText();
+
+            String sql = "SELECT p.*, d.data_dispensa, r.quantidade_preescrita, r.medicamento_nome " +
+                         "FROM paciente p " +
+                         "INNER JOIN receita r ON p.cpf = r.cpf_paciente " +
+                         "INNER JOIN dispensa d ON r.receita_id = d.receita_id " +
+                         "WHERE p.cpf = ?";
+
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, cpfPaciente);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Paciente paciente = new Paciente();
-                paciente.setCpf(rs.getString("cpf"));
-                paciente.setNome(rs.getString("nome"));
-                paciente.setDataNascimento(rs.getDate("data_nasc").toLocalDate());
-                paciente.setEmail(rs.getString("email"));
-                pacientes.add(paciente);
+                // Mapear os resultados para as classes associadas
+                Receita receita = new Receita();
+                receita.setId(rs.getInt("receita_id"));
+                receita.setQuantidade(rs.getInt("quantidade_preescrita"));
+
+                Remedio remedio = new Remedio();
+                remedio.setNome(rs.getString("medicamento_nome"));
+
+                Farmaceutico farmaceutico = new Farmaceutico();
+                farmaceutico.setCrf(rs.getString("crm_farmaceutico"));
+
+                Dispensa dispensa = new Dispensa(receita, farmaceutico, remedio, rs.getDate("data_dispensa").toLocalDate());
+                dispensa.setDispensaId(rs.getInt("dispensa_id"));
+
+                dispensas.add(dispensa);
             }
         } catch (SQLException ex) {
-                 Logger.getLogger(ConsultaPac.class.getName()).log(Level.SEVERE, null, ex);
-
-
+            ex.printStackTrace();
         } finally {
-           
+            // Fechar recursos
             try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
@@ -188,16 +203,27 @@ public class ConsultaPac extends javax.swing.JFrame {
             }
         }
 
-        return pacientes;
-}
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaPac().setVisible(true);
-            }
-        });
+        return dispensas;
     }
+
+    public void preencherTabela(List<Dispensa> dispensas) {
+        DefaultTableModel modelo = (DefaultTableModel) tableProntuario.getModel();
+        modelo.setRowCount(0);
+
+        for (Dispensa dispensa : dispensas) {
+            Object[] rowData = {
+                dispensa.getReceita().getPaciente().getCpf(),
+                dispensa.getReceita().getPaciente().getNome(),
+                dispensa.getReceita().getPaciente().getDataNascimento(),
+                dispensa.getReceita().getPaciente().getEmail(),
+                dispensa.getDataDispensa(),
+                dispensa.getReceita().getQuantidade(),
+                dispensa.getReceita().getRemedio().getNome()
+            };
+            modelo.addRow(rowData);
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
@@ -206,7 +232,7 @@ public class ConsultaPac extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCPF;
+    private javax.swing.JTable tableProntuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,38 +3,38 @@ import java.time.format.DateTimeParseException;
 
 public class Receita {
     private int id;
-    private Paciente pac;
+    private Paciente paciente;
     private String crm;
     private LocalDate dataPrescricao;
-    private Remedio rem;
+    private Remedio remedio;
     private String observacoes;
     private int quantidade;
 
-    // Construtores, getters e setters
 
-    public Receita(int id,Paciente pac, LocalDate dataPrescricao, String observacoes, int quantidade) {
+    public Receita(int id, Paciente paciente, String crm, LocalDate dataPrescricao, Remedio remedio, String observacoes, int quantidade) {
         this.id = id;
+        this.paciente = paciente;
         this.crm = crm;
         this.dataPrescricao = dataPrescricao;
-        this.rem = rem;
+        this.remedio = remedio;
         this.observacoes = observacoes;
-        this.pac = pac;
-        this.rem = rem;
         this.quantidade = quantidade;
     }
-    public Receita() {
-    this.id = 0;
-    this.crm = null;
-    this.dataPrescricao = null;
-    this.rem = null;
-    this.observacoes = null;
-    this.pac = null;
-    this.quantidade = 0;
-}
 
-    
+    public Receita() {
+        this.id = 0;
+        this.paciente = null;
+        this.crm = null;
+        this.dataPrescricao = null;
+        this.remedio = null;
+        this.observacoes = null;
+        this.quantidade = 0;
+    }
     public int getId() {
         return id;
+    }
+    public Paciente getPaciente() {
+        return paciente;
     }
     public String getCrm() {
         return crm;
@@ -42,38 +42,43 @@ public class Receita {
     public LocalDate getDataPrescricao() {
         return dataPrescricao;
     }
+    public Remedio getRemedio() {
+        return remedio;
+    }
     public String getObservacoes() {
         return observacoes;
     }
-    public Paciente getPaciente(){
-        return pac;
-    }
-    public Remedio getRemedio(){
-        return rem;
-    }
-    public int getQuantidade (){
+    public int getQuantidade() {
         return quantidade;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
     public void setCrm(String crm) {
         this.crm = crm;
     }
+
     public void setDataPrescricao(LocalDate dataPrescricao) {
         this.dataPrescricao = dataPrescricao;
     }
+
+    public void setRemedio(Remedio remedio) {
+        this.remedio = remedio;
+    }
+
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-    public void setPaciente (Paciente pac) {
-        this.pac = pac;
-    }
-    public void setRemedio(Remedio rem) {
-        this.rem = rem;
-    }
-    public void setQuantidade (int quantidade){
+
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
 }
 

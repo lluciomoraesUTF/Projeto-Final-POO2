@@ -1,18 +1,21 @@
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class ConsultaRem extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsultaRem
      */
+    List<Remedio> remedios = new ArrayList<>();
     public ConsultaRem() {
         initComponents();
     }
@@ -33,7 +36,8 @@ public class ConsultaRem extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jRemedios = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +63,7 @@ public class ConsultaRem extends javax.swing.JFrame {
 
         jButton2.setText("Voltar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jRemedios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -74,7 +78,14 @@ public class ConsultaRem extends javax.swing.JFrame {
                 "Código", "Nome", "lote", "Data de Validade"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jRemedios);
+
+        jButton3.setText("Deletar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,7 +111,10 @@ public class ConsultaRem extends javax.swing.JFrame {
                         .addComponent(ctCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton3)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,7 +126,9 @@ public class ConsultaRem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -130,19 +146,29 @@ public class ConsultaRem extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         try {
             consulta();
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaRem.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         del();
+        try {
+            preencherTabela();
+        }
+        catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null,"VALOR INVÁLIDO!","VALOR INVÁLIDO",1);
+        } 
+    }//GEN-LAST:event_jButton3ActionPerformed
       private void limpar() { 
         ctCodigo.setText("");
-}
-    
-
-    public static List<Remedio> consulta() throws SQLException {
-        List<Remedio> remedios = new ArrayList<>();
+    }
+      public List<Remedio> consulta() throws SQLException {
+        
         PreparedStatement stmt = null;
         Connection con = null;
         ResultSet rs = null;
@@ -151,15 +177,18 @@ public class ConsultaRem extends javax.swing.JFrame {
             Conexao conexao = Conexao.getInstance();
             con = conexao.getConnection();
 
-            stmt = con.prepareStatement("SELECT rem_cod, nome, lote, data_valid FROM remedio");
+            int codigo = Integer.parseInt(ctCodigo.getText());
+
+            stmt = con.prepareStatement("SELECT rem_cod, nome, lote, data_valid FROM remedio WHERE rem_cod = ?");
+            stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
 
-            while (rs.next()) {
+            if (rs.next()) {
                 Remedio remedio = new Remedio();
-                remedio.setCodigo(rs.getInt("Código"));
+                remedio.setCodigo(rs.getInt("rem_cod"));
                 remedio.setNome(rs.getString("nome"));
                 remedio.setLote(rs.getInt("lote"));
-                remedio.setData_Validade(rs.getDate("Data Validade").toLocalDate());
+                remedio.setData_Validade(rs.getDate("data_valid").toLocalDate());
                 remedios.add(remedio);
             }
         } catch (SQLException ex) {
@@ -170,12 +199,46 @@ public class ConsultaRem extends javax.swing.JFrame {
                 if (stmt != null) stmt.close();
                 if (con != null) con.close();
             } catch (SQLException e) {
-               
+                e.printStackTrace();
             }
         }
 
         return remedios;
     }
+      
+   public void preencherTabela() {
+    DefaultTableModel modelo = (DefaultTableModel) jRemedios.getModel();
+    modelo.setRowCount(0);
+
+    for (Remedio remedio : remedios) {
+        Object[] rowData = {
+            remedio.getCodigo(),
+            remedio.getNome(),
+            remedio.getLote(),
+            remedio.getData_Validade()
+        };
+        modelo.addRow(rowData);
+    }
+}
+    public void del(){
+        try {            
+            PreparedStatement st = null;
+            Conexao conexao = Conexao.getInstance();
+            Connection con = conexao.getConnection(); 
+            st = con.prepareStatement("DELETE FROM remedio WHERE rem_cod = ?",Statement.RETURN_GENERATED_KEYS);           
+            String codigo_Remedio = ctCodigo.getText();
+            int codigoRemedio = Integer.parseInt(codigo_Remedio);
+            st.setInt(1, codigoRemedio);
+            st.executeUpdate();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"VOCÊ NÃO PODE EXCLUIR UM FUNCIONÁRIO SEM ANTES EXCLUIR OS DADOS EM OUTRA TABELA!","ERRO",1);
+        }
+        catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null,"VALOR INVÁLIDO!","VALOR INVÁLIDO",1);
+        }
+    }
+     
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -214,9 +277,10 @@ public class ConsultaRem extends javax.swing.JFrame {
     private javax.swing.JTextField ctCodigo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JTable jRemedios;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

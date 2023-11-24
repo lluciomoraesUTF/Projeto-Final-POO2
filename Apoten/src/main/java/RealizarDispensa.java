@@ -309,29 +309,25 @@ public class RealizarDispensa extends javax.swing.JFrame {
             LocalDate dataPrescricao = LocalDate.parse(ctData_Preesc.getText());
             stReceita.setDate(4, java.sql.Date.valueOf(dataPrescricao));
             stReceita.setString(5, ctNome_Rem.getText());
+            stReceita.setInt(6, Integer.parseInt(ctRemCod.getText()));
             stReceita.setInt(6, Integer.parseInt(ctQuant.getText()));
 
             ResultSet rsReceita = stReceita.executeQuery();
             int receitaId = rsReceita.getInt("receita_id");
-
-            // Inserir dados na tabela 'dispensa'
-            stDispensa = con.prepareStatement("INSERT INTO dispensa (receita_id, cpf_paciente, nome_paciente, crf_farmaceutico, nome_farmaceutico, " +
-                    "medicamento_nome, medicamento_lote, quantidade_preescrita, data_dispensa) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
+            stDispensa = con.prepareStatement("INSERT INTO dispensa (receita_id, cpf_paciente, nome_paciente, crf_farmaceutico, nome_farmaceutico, rem_cod, rem_nome, medicamento_lote, quantidade_preescrita, data_dispensa) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             stDispensa.setInt(1, receitaId);
             stDispensa.setString(2, ctCPF.getText());
             stDispensa.setString(3, ctNome_Pac.getText());
             stDispensa.setString(4, ctCRF.getText());
             stDispensa.setString(5, ctNome_Farm.getText());
-            stDispensa.setString(6, ctNome_Rem.getText());
-            stDispensa.setInt(7, Integer.parseInt(ctLote.getText()));
-            stDispensa.setInt(8, Integer.parseInt(ctQuant.getText()));
-            stDispensa.setDate(9, java.sql.Date.valueOf(LocalDate.now()));
-
+            stDispensa.setInt(6, Integer.parseInt(ctRemCod.getText())); // Substitua ctRemCod pelo campo apropriado para o código do remédio
+            stDispensa.setString(7, ctNome_Rem.getText());
+            stDispensa.setInt(8, Integer.parseInt(ctLote.getText()));
+            stDispensa.setInt(9, Integer.parseInt(ctQuant.getText()));
+            stDispensa.setDate(10, java.sql.Date.valueOf(LocalDate.now()));
             int rowsAffectedDispensa = stDispensa.executeUpdate();
 
-            // Atualizar estoque do remédio
             stAtualizarEstoque = con.prepareStatement("UPDATE remedio SET quantidade_disponivel = quantidade_disponivel - ? " +
                     "WHERE rem_cod = ?");
 
