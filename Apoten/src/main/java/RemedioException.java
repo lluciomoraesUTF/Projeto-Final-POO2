@@ -1,5 +1,4 @@
 
-//Lucio da Cruz de Moraes RA: 2476550
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
