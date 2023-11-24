@@ -245,7 +245,6 @@ public class CadPaciente extends javax.swing.JFrame {
                     con.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
             }
         }
     }

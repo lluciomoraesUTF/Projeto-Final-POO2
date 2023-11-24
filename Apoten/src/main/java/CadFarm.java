@@ -232,7 +232,6 @@ public class CadFarm extends javax.swing.JFrame {
                     stFarmaceutico.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
             }
             System.out.println("Finally block executado.");
         }

@@ -165,7 +165,6 @@ public class Login extends javax.swing.JFrame {
                     if (st != null) st.close();
                     if (con != null) con.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
                 }
             }
         }

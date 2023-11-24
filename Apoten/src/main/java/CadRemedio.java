@@ -250,7 +250,7 @@ public class CadRemedio extends javax.swing.JFrame {
                     con.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                
             }
         }
     }
