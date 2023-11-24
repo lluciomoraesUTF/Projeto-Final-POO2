@@ -1,3 +1,7 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 public class CadFarm extends javax.swing.JFrame {
 
@@ -178,29 +182,63 @@ public class CadFarm extends javax.swing.JFrame {
     private void ctNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctNomeActionPerformed
-    private void cadastrar() {
-        Farmaceutico farm = new Farmaceutico();
-        farm.setCrf(ctSenha.getText());
-        farm.setCpf(ctCPF.getText());
-        farm.setNome(ctNome.getText());
-        farm.setSenha(ctCRM.getText());
-
-        if (farm != null) {
-            JOptionPane.showMessageDialog(null, "Cadastro de farm efetuado com sucesso!");
-            limpar();
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao efetuar o cadastro do farm. Por favor, tente novamente.");
-        }
-}
-    /**
-     * @param args the command line arguments
-     */
+  
       private void limpar() {
         ctNome.setText("");
         ctCPF.setText("");
         ctCRM.setText("");
         ctSenha.setText("");
     }
+     public void cadastrar() {
+        PreparedStatement stPessoa = null;
+        PreparedStatement stFarmaceutico = null;
+
+        try {
+            Conexao conexao = Conexao.getInstance();
+            Connection con = conexao.getConnection();
+
+            stPessoa = con.prepareStatement("INSERT INTO pessoa (cpf, nome) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stPessoa.setString(1, ctCPF.getText());
+            stPessoa.setString(2, ctNome.getText());
+
+            int rowsAffectedPessoa = stPessoa.executeUpdate();
+
+            if (rowsAffectedPessoa > 0) {
+                stFarmaceutico = con.prepareStatement("INSERT INTO farmaceutico (cpf, nome_farm, crf, senha) VALUES (?, ?, ?, ?)");
+                stFarmaceutico.setString(1, ctCPF.getText());
+                stFarmaceutico.setString(2, ctNome.getText());
+                stFarmaceutico.setString(3, ctCRM.getText());
+                stFarmaceutico.setString(4, ctSenha.getText());
+
+                int rowsAffectedFarmaceutico = stFarmaceutico.executeUpdate();
+
+                if (rowsAffectedFarmaceutico > 0) {
+                    JOptionPane.showMessageDialog(null, "Cadastro de farmacêutico realizado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar farmacêutico", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar farmacêutico: " + ex.getMessage(), "Erro SQL", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "VALOR INVÁLIDO!", "VALOR INVÁLIDO", JOptionPane.WARNING_MESSAGE);
+        } finally {
+            try {
+                if (stPessoa != null) {
+                    stPessoa.close();
+                }
+
+                if (stFarmaceutico != null) {
+                    stFarmaceutico.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Finally block executado.");
+        }
+    }
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

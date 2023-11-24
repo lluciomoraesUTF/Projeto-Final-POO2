@@ -1,6 +1,11 @@
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class CadPaciente extends javax.swing.JFrame {
 
     /**
@@ -183,61 +188,68 @@ public class CadPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ctEmailActionPerformed
     private void limpar() {
-    ctEmail.setText("");
-    ctCPF.setText("");
-    ctNome.setText("");
-    ctDataNasc.setText("");
-}
+        ctEmail.setText("");
+        ctCPF.setText("");
+        ctNome.setText("");
+        ctDataNasc.setText("");
+    }
 
-    private void cadastrar() {
-        Paciente paciente = new Paciente();
-        paciente.setEmail(ctEmail.getText());
-        paciente.setCpf(ctCPF.getText());
-        paciente.setNome(ctNome.getText());
-       paciente.setDataNascimento(LocalDate.parse(ctDataNasc.getText()));
-        
-        if (paciente != null) {
-            JOptionPane.showMessageDialog(null, "Cadastro de paciente efetuado com sucesso!");
-            limpar();
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao efetuar o cadastro do paciente. Por favor, tente novamente.");
-        }
-}
+    public void cadastrar() {
+        Connection con = null;
+        PreparedStatement stPessoa = null;
+        PreparedStatement stPaciente = null;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            Conexao conexao = Conexao.getInstance();
+            con = conexao.getConnection();
+
+            stPessoa = con.prepareStatement("INSERT INTO pessoa (cpf, nome) VALUES (?, ?)");
+            stPessoa.setString(1, ctCPF.getText());
+            stPessoa.setString(2, ctNome.getText());
+
+            int rowsAffectedPessoa = stPessoa.executeUpdate();
+
+            if (rowsAffectedPessoa > 0) {
+                stPaciente = con.prepareStatement("INSERT INTO paciente (cpf, nome_pac, data_nasc, email) VALUES (?, ?, ?, ?)");
+                stPaciente.setString(1, ctCPF.getText());
+                stPaciente.setString(2, ctNome.getText());
+                // Supondo que ctDataNasc seja um campo de data ou formato adequado
+                stPaciente.setDate(3, java.sql.Date.valueOf(ctDataNasc.getText()));
+                stPaciente.setString(4, ctEmail.getText());
+
+                int rowsAffectedPaciente = stPaciente.executeUpdate();
+
+                if (rowsAffectedPaciente > 0) {
+                    JOptionPane.showMessageDialog(null, "Cadastro de paciente realizado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar paciente", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar paciente: " + ex.getMessage(), "Erro SQL", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        } catch (NumberFormatException | DateTimeParseException nfe) {
+            JOptionPane.showMessageDialog(null, "VALOR INVÁLIDO!", "VALOR INVÁLIDO", JOptionPane.WARNING_MESSAGE);
+            nfe.printStackTrace();
+        } finally {
+            try {
+                if (stPessoa != null) {
+                    stPessoa.close();
+                }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadPaciente().setVisible(true);
+                if (stPaciente != null) {
+                    stPaciente.close();
+                }
+
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        });
+        }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;

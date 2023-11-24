@@ -1,4 +1,7 @@
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
@@ -32,6 +35,8 @@ public class CadRemedio extends javax.swing.JFrame {
         btLimpar = new javax.swing.JButton();
         btCadastrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        ctCodigo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +92,15 @@ public class CadRemedio extends javax.swing.JFrame {
 
         jButton1.setText("Voltar");
 
+        ctCodigo.setText("Código do Remédio");
+        ctCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctCodigoActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Código");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,32 +114,36 @@ public class CadRemedio extends javax.swing.JFrame {
                         .addComponent(btLimpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                         .addComponent(btCadastrar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(115, 115, 115)
+                            .addComponent(lblTitle))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ctQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(115, 115, 115)
-                                .addComponent(lblTitle))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ctLote)
-                                    .addComponent(ctNome)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ctQuant)))))
-                        .addGap(12, 12, 12)))
+                                    .addComponent(ctNome)
+                                    .addComponent(ctCodigo))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -133,7 +151,11 @@ public class CadRemedio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ctCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -149,7 +171,7 @@ public class CadRemedio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctQuant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQuant))
-                .addGap(69, 69, 69)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btLimpar)
@@ -179,82 +201,64 @@ public class CadRemedio extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         cadastrar();
     }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void ctCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctCodigoActionPerformed
      private void limpar() {
+        ctCodigo.setText("");
         ctNome.setText("");
         ctLote.setText("");
         ctDatadeValidade.setText("");
         ctQuant.setText("");
     }
      private void cadastrar(){
-	Remedio rem = new Remedio();
-        try{
-                rem.setNome(ctNome.getText());
-		rem.setLote(Integer.parseInt(ctLote.getText()));
-                try{
-                    rem.setData_Validade(LocalDate.parse(ctDatadeValidade.getText()));
-                }catch(DateTimeParseException d){
-                    JOptionPane.showMessageDialog(
-				null,
-				"Formato de data não suportado"	);
-                }
-		rem.setQuantidade(Integer.parseInt(ctQuant.getText()));
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(
-				null,
-				"Voce inseriu algum dado de forma incorreta!");
-        }
-	
-	
-	if(rem!=null){
-		JOptionPane.showMessageDialog(
-				null,
-				"Cadastro efetuado com sucesso!");
-		limpar();
-	}
-	else{
-		JOptionPane.showMessageDialog(
-				null,
-				"Cadastro não efetuado!"	); 
-	}
-} 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadRemedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadRemedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadRemedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadRemedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        Connection con = null;
+        PreparedStatement stRemedio = null;
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadRemedio().setVisible(true);
+        try {
+            Conexao conexao = Conexao.getInstance();
+            con = conexao.getConnection();
+
+            stRemedio = con.prepareStatement("INSERT INTO remedio (rem_cod, nome, lote, data_valid) VALUES (?, ?, ?, ?)");
+            stRemedio.setInt(1, Integer.parseInt(ctCodigo.getText())); 
+            stRemedio.setString(2, ctNome.getText()); 
+            stRemedio.setInt(3, Integer.parseInt(ctLote.getText()));
+            LocalDate dataValidade = LocalDate.parse(ctDatadeValidade.getText());
+            stRemedio.setDate(4, java.sql.Date.valueOf(dataValidade));
+
+            int rowsAffectedRemedio = stRemedio.executeUpdate();
+
+            if (rowsAffectedRemedio > 0) {
+                JOptionPane.showMessageDialog(null, "Cadastro de remédio realizado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar remédio", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-        });
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar remédio: " + ex.getMessage(), "Erro SQL", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException | DateTimeParseException nfe) {
+            JOptionPane.showMessageDialog(null, "VALOR INVÁLIDO!", "VALOR INVÁLIDO", JOptionPane.WARNING_MESSAGE);
+            nfe.printStackTrace(); // Isso é opcional, você pode remover se não quiser imprimir o stack trace no console
+        
+    } finally {
+            try {
+                if (stRemedio != null) {
+                    stRemedio.close();
+                }
+
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JTextField ctCodigo;
     private javax.swing.JTextField ctDatadeValidade;
     private javax.swing.JTextField ctLote;
     private javax.swing.JTextField ctNome;
@@ -262,6 +266,7 @@ public class CadRemedio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblDatadeValidade;
     private javax.swing.JLabel lblQuant;
     private javax.swing.JLabel lblTitle;
