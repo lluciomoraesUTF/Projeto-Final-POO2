@@ -29,13 +29,13 @@ public class CadRemedio extends javax.swing.JFrame {
         ctDatadeValidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btSair = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         btCadastrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ctNome.setText("Nome Anti hipertensão");
+        ctNome.setText("Nome Remédio");
 
         lblQuant.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblQuant.setText("Quantidade:");
@@ -71,13 +71,6 @@ public class CadRemedio extends javax.swing.JFrame {
 
         jLabel2.setText("Lote");
 
-        btSair.setText("Sair");
-        btSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairActionPerformed(evt);
-            }
-        });
-
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +85,8 @@ public class CadRemedio extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Voltar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,35 +94,39 @@ public class CadRemedio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(lblTitle))
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                        .addComponent(btCadastrar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ctLote, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ctNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ctQuant))
+                                .addGap(115, 115, 115)
+                                .addComponent(lblTitle))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ctLote)
+                                    .addComponent(ctNome)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btLimpar)
-                                .addGap(36, 36, 36)
-                                .addComponent(btCadastrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btSair)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ctQuant)))))
+                        .addGap(12, 12, 12)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,12 +149,12 @@ public class CadRemedio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctQuant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQuant))
-                .addGap(18, 18, 18)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSair)
-                    .addComponent(btCadastrar)
-                    .addComponent(btLimpar))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(btLimpar)
+                    .addComponent(btCadastrar))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,10 +171,6 @@ public class CadRemedio extends javax.swing.JFrame {
     private void ctDatadeValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctDatadeValidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctDatadeValidadeActionPerformed
-
-    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        dispose();
-    }//GEN-LAST:event_btSairActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
@@ -260,11 +255,11 @@ public class CadRemedio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
-    private javax.swing.JButton btSair;
     private javax.swing.JTextField ctDatadeValidade;
     private javax.swing.JTextField ctLote;
     private javax.swing.JTextField ctNome;
     private javax.swing.JTextField ctQuant;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblDatadeValidade;

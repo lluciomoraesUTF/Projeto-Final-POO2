@@ -28,6 +28,7 @@ public class CadFarm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,17 +86,14 @@ public class CadFarm extends javax.swing.JFrame {
 
         jLabel3.setText("Nome");
 
+        jButton1.setText("Voltar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(btLimpar)
-                        .addGap(36, 36, 36)
-                        .addComponent(btCadastrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(lblTitle))
@@ -115,7 +113,15 @@ public class CadFarm extends javax.swing.JFrame {
                                     .addComponent(ctNome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ctCRM, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ctSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(btLimpar)
+                .addGap(18, 18, 18)
+                .addComponent(btCadastrar)
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +144,12 @@ public class CadFarm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLimpar)
                     .addComponent(btCadastrar)
-                    .addComponent(btLimpar))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
@@ -233,6 +240,7 @@ public class CadFarm extends javax.swing.JFrame {
     private javax.swing.JTextField ctCRM;
     private javax.swing.JTextField ctNome;
     private javax.swing.JTextField ctSenha;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

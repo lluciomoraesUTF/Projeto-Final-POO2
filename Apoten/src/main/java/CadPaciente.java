@@ -19,7 +19,6 @@ public class CadPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btSair = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
         lblAlergiaMedicamento = new javax.swing.JLabel();
         ctEmail = new javax.swing.JTextField();
@@ -31,15 +30,9 @@ public class CadPaciente extends javax.swing.JFrame {
         ctCPF = new javax.swing.JTextField();
         lblSaudCod = new javax.swing.JLabel();
         ctDataNasc = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btSair.setText("Sair");
-        btSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairActionPerformed(evt);
-            }
-        });
 
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +86,8 @@ public class CadPaciente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Voltar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,11 +118,14 @@ public class CadPaciente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(btLimpar)
-                .addGap(36, 36, 36)
-                .addComponent(btCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btSair)
-                .addContainerGap())
+                .addComponent(btCadastrar)
+                .addGap(18, 18, 18))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(127, 127, 127)
+                    .addComponent(jButton1)
+                    .addContainerGap(128, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,18 +150,18 @@ public class CadPaciente extends javax.swing.JFrame {
                     .addComponent(ctEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSair)
                     .addComponent(btCadastrar)
                     .addComponent(btLimpar))
                 .addGap(189, 189, 189))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(187, 187, 187)
+                    .addComponent(jButton1)
+                    .addContainerGap(187, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        dispose();
-    }//GEN-LAST:event_btSairActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
@@ -244,11 +242,11 @@ public class CadPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
-    private javax.swing.JButton btSair;
     private javax.swing.JTextField ctCPF;
     private javax.swing.JTextField ctDataNasc;
     private javax.swing.JTextField ctEmail;
     private javax.swing.JTextField ctNome;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAlergiaMedicamento;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblNome;
