@@ -11,39 +11,37 @@ Create Table pessoa (
 );
 
 Create Table paciente(
-    cpf varchar(11) primary key References pessoa(cpf),
-    nome_pac varchar (100)References pessoa(nome),
-    data_nasc DATE ,
-    email varchar(100)
+    cpf VARCHAR(11) PRIMARY KEY REFERENCES pessoa(cpf),
+    nome_pac VARCHAR(100),
+    data_nasc DATE,
+    email VARCHAR(100)
 );
-
+drop table paciente;
 create table farmaceutico(
     cpf varchar(11) primary key References pessoa(cpf),
-    nome_farm varchar (100)References pessoa(nome),
+    nome_farm varchar (100),
     crf varchar (20),
     senha varchar (100)
 );
-
-create table receita (
-
+CREATE TABLE receita (
     receita_id SERIAL PRIMARY KEY,
-    cpf INT REFERENCES paciente(cpf),
-    nome References paciente(nome),
-    crm varchar (20),
+    cpf_paciente VARCHAR(11) REFERENCES paciente(cpf),
+    crm VARCHAR(20),
+    medicamento_nome varchar (50),
+    medicamento_lote varchar (50),
+    quantidade_preescrita INT,
     data_prescricao DATE,
     medicamentos TEXT,
-    observacoes TEXT,   
-    quantidade_preescrita int
+    observacoes TEXT
 );
+
 CREATE TABLE dispensa (
     dispensa_id SERIAL PRIMARY KEY,
-    receita_id INT REFERENCES receita(receita_id),
-    cpf_paciente VARCHAR(11) REFERENCES paciente(cpf),
-    nome_paciente VARCHAR(100) REFERENCES paciente(nome),
-    crm_farmaceutico VARCHAR(20) REFERENCES farmaceutico(crf),
-    nome_farmaceutico VARCHAR(100) REFERENCES farmaceutico(nome),
-    medicamento_nome VARCHAR(100) REFERENCES remedio(nome),
-    medicamento_lote INT REFERENCES remedio(lote),
+    receita_id INT,
+    cpf_paciente VARCHAR(11),
+    crm_farmaceutico VARCHAR(20),
+    medicamento_nome VARCHAR(100),
+    medicamento_lote INT,
     quantidade_preescrita INT,
     data_dispensa DATE
 );
