@@ -2,14 +2,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class CadFarm extends javax.swing.JFrame {
-
+         private static CadFarm cadastFarm;
+            
     /**
      * Creates new form CadFarm
      */
     public CadFarm() {
         initComponents();
+    }
+    public static CadFarm getCadfarm() {
+        if (cadastFarm == null) {
+            cadastFarm = new CadFarm();
+        }
+        return cadastFarm;
     }
 
     /**
@@ -91,6 +99,11 @@ public class CadFarm extends javax.swing.JFrame {
         jLabel3.setText("Nome");
 
         jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,6 +195,11 @@ public class CadFarm extends javax.swing.JFrame {
     private void ctNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctNomeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            Principal.getPrincip().setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
   
       private void limpar() {
         ctNome.setText("");

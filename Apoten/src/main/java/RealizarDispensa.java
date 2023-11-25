@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 public class RealizarDispensa extends javax.swing.JFrame {
+       // private static RealizarDispensa Disp;
 
     /**
      * Creates new form RealizarDispensa

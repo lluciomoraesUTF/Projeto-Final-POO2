@@ -11,13 +11,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaRem extends javax.swing.JFrame {
-
+    private static ConsultaRem consRem;
     /**
      * Creates new form ConsultaRem
      */
     List<Remedio> remedios = new ArrayList<>();
     public ConsultaRem() {
         initComponents();
+    }
+    public static ConsultaRem getConsRem() {
+        if (consRem == null) {
+            consRem = new ConsultaRem();
+        }   
+        return consRem;
     }
 
     /**

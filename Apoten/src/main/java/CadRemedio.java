@@ -8,12 +8,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class CadRemedio extends javax.swing.JFrame {
-
+    private static CadRemedio cadRem;
     /**
      * Creates new form CadRemedio
      */
     public CadRemedio() {
         initComponents();
+    }
+    public static CadRemedio getCadRem() {
+        if (cadRem == null) {
+            cadRem = new CadRemedio();
+        }   
+        return cadRem;
     }
 
     /**
