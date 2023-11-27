@@ -32,7 +32,6 @@ public class Principal extends javax.swing.JFrame {
         btConsultaPac = new javax.swing.JButton();
         btConsultarRem = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        btConsultaPac1 = new javax.swing.JButton();
         btCadastrarRem1 = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JMenuBar();
         MnCadastro = new javax.swing.JMenu();
@@ -80,13 +79,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btConsultaPac1.setText("Prontuário do Paciente");
-        btConsultaPac1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaPac1ActionPerformed(evt);
-            }
-        });
-
         btCadastrarRem1.setText("Cadastrar Farmaceutico");
         btCadastrarRem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +107,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btConsultaPac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btConsultarRem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btConsultaPac1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addComponent(btConsultarRem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)))))
@@ -149,9 +140,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btConsultarRem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btConsultaPac)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btConsultaPac1)
-                .addGap(15, 15, 15)
+                .addGap(44, 44, 44)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -165,24 +154,21 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btConsultarRemActionPerformed
 
     private void btCadastrarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarPacActionPerformed
-        new CadPaciente().setVisible(true);
+         CadPaciente.getCadPac().setVisible(true);
     }//GEN-LAST:event_btCadastrarPacActionPerformed
 
     private void btCadastrarRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarRemActionPerformed
-        
+         CadRemedio.getCadRem().setVisible(true);
+
     }//GEN-LAST:event_btCadastrarRemActionPerformed
 
     private void btConsultaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaPacActionPerformed
-        new ConsultaPac().setVisible(true);
+       ConsultaPac.getConsPac().setVisible(true);
     }//GEN-LAST:event_btConsultaPacActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btConsultaPac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaPac1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaPac1ActionPerformed
 
     private void btCadastrarRem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarRem1ActionPerformed
         CadFarm.getCadfarm().setVisible(true);
@@ -231,7 +217,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btCadastrarRem;
     private javax.swing.JButton btCadastrarRem1;
     private javax.swing.JButton btConsultaPac;
-    private javax.swing.JButton btConsultaPac1;
     private javax.swing.JButton btConsultarRem;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

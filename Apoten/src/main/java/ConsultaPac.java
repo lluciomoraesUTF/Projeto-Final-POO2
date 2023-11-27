@@ -12,14 +12,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConsultaPac extends javax.swing.JFrame {
-
+    private static ConsultaPac consRem;  
     /**
      * Creates new form ConsultaPac
      */
     public ConsultaPac() {
         initComponents();
     }
-
+    public static ConsultaPac getConsPac() {
+        if (consRem == null) {
+            consRem = new ConsultaPac();
+        }
+        return consRem;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

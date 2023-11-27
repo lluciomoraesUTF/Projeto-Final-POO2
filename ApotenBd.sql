@@ -46,3 +46,5 @@ CREATE TABLE dispensa (
     data_dispensa DATE
 );
 
+CREATE USER Admin WITH PASSWORD 'admin';
+GRANT SELECT, INSERT, DELETE ON TABLE remedio, pessoa, paciente, farmaceutico, receita, dispensa TO Admin;

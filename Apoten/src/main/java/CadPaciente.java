@@ -11,8 +11,15 @@ public class CadPaciente extends javax.swing.JFrame {
     /**
      * Creates new form CadPaciente
      */
+    private static CadPaciente cadastPac;
     public CadPaciente() {
         initComponents();
+    }
+    public static CadPaciente getCadPac() {
+        if (cadastPac == null) {
+            cadastPac = new CadPaciente();
+        }
+        return cadastPac;
     }
 
     /**
