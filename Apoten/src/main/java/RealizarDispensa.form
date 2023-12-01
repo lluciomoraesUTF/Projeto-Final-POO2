@@ -27,50 +27,42 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="273" max="32767" attributes="0"/>
+                              <Component id="lblCPF4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ctCRF" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblCPF4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ctCRF" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblCPF3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblQuant" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="lblCPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCPF1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCPF2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ctData_Preesc" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
-                                          <Component id="ctCRM" min="-2" pref="223" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="ctNome_Rem" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="ctRemCod" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
-                                                  <Component id="ctLote" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
-                                                  <Component id="ctCPF" min="-2" pref="223" max="-2" attributes="0"/>
-                                                  <Component id="ctNome_Pac" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                                  <Component id="ctQuant" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCPF3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQuant" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblCPF" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCPF1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCPF2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ctData_Preesc" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                  <Component id="ctCRM" min="-2" pref="223" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="ctNome_Rem" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ctRemCod" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="ctLote" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="ctCPF" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="ctNome_Pac" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="ctQuant" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -147,7 +139,7 @@
                   <Component id="ctNome_Farm" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblCPF5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -160,6 +152,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo do Rem&#xe9;dio"/>
       </Properties>
     </Component>
@@ -170,6 +165,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Lote"/>
       </Properties>
     </Component>
@@ -246,20 +244,29 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Dispensar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sair"/>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Dispensa"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ctData_Preesc">
       <Properties>
-        <Property name="text" type="java.lang.String" value="2023001"/>
+        <Property name="text" type="java.lang.String" value="aaaa-dd-mm"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctData_PreescActionPerformed"/>

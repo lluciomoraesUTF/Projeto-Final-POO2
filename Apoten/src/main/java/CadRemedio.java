@@ -42,10 +42,10 @@ public class CadRemedio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btLimpar = new javax.swing.JButton();
         btCadastrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
         ctCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,15 +74,17 @@ public class CadRemedio extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setText("Remedio");
 
-        ctDatadeValidade.setText("aaaa/mm/dd");
+        ctDatadeValidade.setText("aaaa-mm-dd");
         ctDatadeValidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctDatadeValidadeActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Nome");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Lote");
 
         btLimpar.setText("Limpar");
@@ -99,7 +101,12 @@ public class CadRemedio extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Voltar");
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         ctCodigo.setText("Código do Remédio");
         ctCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -108,9 +115,15 @@ public class CadRemedio extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Código");
 
-        jButton2.setText("Alterar");
+        btAlterar.setText("Alterar");
+        btAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,44 +133,45 @@ public class CadRemedio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btLimpar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCadastrar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2))
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ctLote)
-                                    .addComponent(ctNome)
-                                    .addComponent(ctCodigo)))))
+                                .addGap(25, 25, 25)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctLote)
+                            .addComponent(ctNome)
+                            .addComponent(ctCodigo)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
                                 .addComponent(lblTitle))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(ctQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(ctQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(ctDatadeValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -188,10 +202,10 @@ public class CadRemedio extends javax.swing.JFrame {
                     .addComponent(lblQuant))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btVoltar)
                     .addComponent(btLimpar)
                     .addComponent(btCadastrar)
-                    .addComponent(jButton2))
+                    .addComponent(btAlterar))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -221,6 +235,19 @@ public class CadRemedio extends javax.swing.JFrame {
     private void ctCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctCodigoActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        try {
+            Principal.getPrincipal().setVisible(true);
+            this.dispose(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(CadPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
+        alterar();
+    }//GEN-LAST:event_btAlterarActionPerformed
      private void limpar() {
         ctCodigo.setText("");
         ctNome.setText("");
@@ -230,10 +257,10 @@ public class CadRemedio extends javax.swing.JFrame {
     }
      
      private void cadastrar(){
-        Connection con = null;
         PreparedStatement stRemedio = null;
 
         try {
+            Connection con = null;
             Conexao conexao = Conexao.getInstance();
             con = conexao.getConnection();
 
@@ -241,9 +268,12 @@ public class CadRemedio extends javax.swing.JFrame {
             stRemedio.setInt(1, Integer.parseInt(ctCodigo.getText())); 
             stRemedio.setString(2, ctNome.getText()); 
             stRemedio.setInt(3, Integer.parseInt(ctLote.getText()));
-            LocalDate dataValidade = LocalDate.parse(ctDatadeValidade.getText());
-            stRemedio.setDate(4, java.sql.Date.valueOf(dataValidade));
-
+            try {
+                LocalDate dataValidade = LocalDate.parse(ctDatadeValidade.getText());
+                stRemedio.setDate(4, java.sql.Date.valueOf(dataValidade));
+            }catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null,"Formato de data inválido. Use o formato YYYY-MM-DD","Erro",JOptionPane.ERROR_MESSAGE);
+            }
             int rowsAffectedRemedio = stRemedio.executeUpdate();
 
             if (rowsAffectedRemedio > 0) {
@@ -255,52 +285,69 @@ public class CadRemedio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar remédio: " + ex.getMessage(), "Erro SQL", JOptionPane.ERROR_MESSAGE);
         } catch (NumberFormatException | DateTimeParseException nfe) {
             JOptionPane.showMessageDialog(null, "VALOR INVÁLIDO!", "VALOR INVÁLIDO", JOptionPane.WARNING_MESSAGE);
-            nfe.printStackTrace(); // Isso é opcional, você pode remover se não quiser imprimir o stack trace no console
+      
         
     } finally {
             try {
                 if (stRemedio != null) {
                     stRemedio.close();
                 }
-
-                if (con != null) {
-                    con.close();
-                }
+                
             } catch (SQLException e) {
                 
             }
         }
     }
-     public void alt(){
-        try {            
-            PreparedStatement st = null;
-            Conexao conexao = Conexao.getInstance();
-            Connection con = conexao.getConnection(); 
-           st = con.prepareStatement("UPDATE remedio SET nome = ?, lote = ?, data_valid = ?, WHERE rem_cod = ?");
-            st.setString(1, ctNome.getText());
-            st.setInt(2, Integer.parseInt(ctLote.getText()));
-            st.setDate(3, java.sql.Date.valueOf(LocalDate.parse(ctDatadeValidade.getText()))); // Certifique-se de que ctDataValidade seja uma String no formato adequado
-            st.setInt(4, Integer.parseInt(ctCodigo.getText()));
-            st.executeUpdate();
+    public void alterar() {
+        PreparedStatement stRemedio = null;
+        Connection con = null;
 
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catch(NumberFormatException nfe){
-            JOptionPane.showMessageDialog(null,"VALOR INVÁLIDO!","VALOR INVÁLIDO",1);
+        try {
+            Conexao conexao = Conexao.getInstance();
+            con = conexao.getConnection();
+
+            String sql = "UPDATE remedio SET nome = ?, lote = ?, data_valid = ? WHERE rem_cod = ?";
+            stRemedio = con.prepareStatement(sql);
+
+            stRemedio.setString(1, ctNome.getText()); // Suponha que 'ctNome' seja o JTextField para o nome
+            stRemedio.setInt(2, Integer.parseInt(ctLote.getText())); // Suponha que 'ctLote' seja o JTextField para o lote
+            try {
+                LocalDate dataValidade = LocalDate.parse(ctDatadeValidade.getText());
+                stRemedio.setDate(3, java.sql.Date.valueOf(dataValidade)); // Suponha que 'ctDatadeValidade' seja o JTextField para a data de validade
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Formato de data inválido. Use o formato YYYY-MM-DD", "Erro", JOptionPane.ERROR_MESSAGE);
+                return; // Saia da função se a data for inválida
+            }
+            stRemedio.setInt(4, Integer.parseInt(ctCodigo.getText())); // Suponha que 'ctCodigo' seja o JTextField para o código
+
+            int rowsAffected = stRemedio.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Remédio atualizado com sucesso!");
+            } else {
+                System.out.println("Falha ao atualizar o remédio. Verifique o código do remédio.");
+            }
+        } catch (SQLException | NumberFormatException ex) {
+        } finally {
+            try {
+                if (stRemedio != null) stRemedio.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+            }
         }
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAlterar;
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField ctCodigo;
     private javax.swing.JTextField ctDatadeValidade;
     private javax.swing.JTextField ctLote;
     private javax.swing.JTextField ctNome;
     private javax.swing.JTextField ctQuant;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

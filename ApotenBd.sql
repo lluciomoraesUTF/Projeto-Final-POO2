@@ -1,5 +1,5 @@
 CREATE Table remedio(
-    registro_anvisa VARCHAR(20) PRIMARY KEY,
+    rem_cod int PRIMARY KEY,
     nome VARCHAR(100),
     lote int,
     data_valid Date
@@ -46,5 +46,4 @@ CREATE TABLE dispensa (
     data_dispensa DATE
 );
 
-CREATE USER Admin WITH PASSWORD 'admin';
-GRANT SELECT, INSERT, DELETE ON TABLE remedio, pessoa, paciente, farmaceutico, receita, dispensa TO Admin;
+

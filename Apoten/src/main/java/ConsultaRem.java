@@ -39,18 +39,20 @@ public class ConsultaRem extends javax.swing.JFrame {
         ctCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btLimpar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btConsultar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jRemedios = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Código");
 
         ctCodigo.setText("Código do remédio");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Consulta Remédio ");
 
         btLimpar.setText("Limpar");
@@ -60,14 +62,19 @@ public class ConsultaRem extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Consultar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btConsultar.setText("Consultar");
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btConsultarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Voltar");
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         jRemedios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,17 +108,14 @@ public class ConsultaRem extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btLimpar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btConsultar)
                 .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(btVoltar)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addComponent(ctCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -120,7 +124,10 @@ public class ConsultaRem extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel2)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,13 +141,13 @@ public class ConsultaRem extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimpar)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btConsultar)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -151,43 +158,64 @@ public class ConsultaRem extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         
         try {
             consulta();
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaRem.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        try {
+            preencherTabela();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaRem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btConsultarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         del();
+        try {
+            del();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaRem.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             preencherTabela();
         }
         catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(null,"VALOR INVÁLIDO!","VALOR INVÁLIDO",1);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaRem.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+   try {
+            Principal.getPrincipal().setVisible(true);
+            this.dispose(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(CadPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                                      
+    }//GEN-LAST:event_btVoltarActionPerformed
       private void limpar() { 
         ctCodigo.setText("");
     }
       public List<Remedio> consulta() throws SQLException {
         
-        PreparedStatement stmt = null;
-        Connection con = null;
+        PreparedStatement stRemedio = null;
         ResultSet rs = null;
 
         try {
+            
             Conexao conexao = Conexao.getInstance();
+            Connection con = null;
             con = conexao.getConnection();
 
             int codigo = Integer.parseInt(ctCodigo.getText());
 
-            stmt = con.prepareStatement("SELECT rem_cod, nome, lote, data_valid FROM remedio WHERE rem_cod = ?");
-            stmt.setInt(1, codigo);
-            rs = stmt.executeQuery();
+            stRemedio = con.prepareStatement("SELECT rem_cod, nome, lote, data_valid FROM remedio WHERE rem_cod = ?");
+            stRemedio.setInt(1, codigo);
+            rs = stRemedio.executeQuery();
 
             if (rs.next()) {
                 Remedio remedio = new Remedio();
@@ -202,8 +230,8 @@ public class ConsultaRem extends javax.swing.JFrame {
         } finally {
             try {
                 if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (con != null) con.close();
+                if (stRemedio != null) stRemedio.close();
+                
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -212,21 +240,22 @@ public class ConsultaRem extends javax.swing.JFrame {
         return remedios;
     }
       
-   public void preencherTabela() {
-    DefaultTableModel modelo = (DefaultTableModel) jRemedios.getModel();
-    modelo.setRowCount(0);
-
-    for (Remedio remedio : remedios) {
-        Object[] rowData = {
-            remedio.getCodigo(),
-            remedio.getNome(),
-            remedio.getLote(),
-            remedio.getData_Validade()
-        };
-        modelo.addRow(rowData);
+    public void preencherTabela() throws SQLException {
+        DefaultTableModel estruturaTabela = (DefaultTableModel) jRemedios.getModel();
+        int posLin = 0;
+        estruturaTabela.setRowCount(posLin);
+    
+        remedios.clear(); // Limpa a lista antes de preenchê-la novamente
+    
+         for (Remedio rm : consulta()) {
+            estruturaTabela.insertRow(posLin, new Object[]{rm.getCodigo(), rm.getNome(), rm.getLote(),
+                rm.getData_Validade(), rm.getQuantidade()});
+            posLin++;
+        }
     }
-}
-    public void del(){
+
+
+    public void del() throws SQLException{
         try {            
             PreparedStatement st = null;
             Conexao conexao = Conexao.getInstance();
@@ -236,9 +265,7 @@ public class ConsultaRem extends javax.swing.JFrame {
             int codigoRemedio = Integer.parseInt(codigo_Remedio);
             st.setInt(1, codigoRemedio);
             st.executeUpdate();
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"VOCÊ NÃO PODE EXCLUIR UM FUNCIONÁRIO SEM ANTES EXCLUIR OS DADOS EM OUTRA TABELA!","ERRO",1);
+            JOptionPane.showMessageDialog(null,"Remedio deletado","ERRO",1);
         }
         catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(null,"VALOR INVÁLIDO!","VALOR INVÁLIDO",1);
@@ -279,10 +306,10 @@ public class ConsultaRem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btConsultar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField ctCodigo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
